@@ -18,7 +18,7 @@ if %errorlevel% neq 0 (
 
 :: Admin vorhanden → Fenster groß machen für Tool
 mode con: cols=70 lines=30
-title Kix Hub 1.3
+title Kix Hub 1.3.1
 color 09
 
 :menu
