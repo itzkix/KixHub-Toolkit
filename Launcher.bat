@@ -43,15 +43,21 @@ if not exist remote_version.txt (
     goto start
 )
 
-set /p remote_version=<remote_version.txt
+:: Versionsnummern sauber einlesen und trimmen
+for /f "tokens=* delims= " %%a in (remote_version.txt) do set remote_version=%%a
 del remote_version.txt
 
 if not exist version.txt (
     echo 0 > version.txt
 )
 
-set /p local_version=<version.txt
+for /f "tokens=* delims= " %%a in (version.txt) do set local_version=%%a
 
+:: Debug-Ausgabe (optional, kann entfernt werden)
+echo Remote Version: '%remote_version%'
+echo Local Version:  '%local_version%'
+
+:: Prüfen, ob Update nötig ist
 if "%remote_version%"=="%local_version%" (
     echo Hub ist aktuell.
     goto start
