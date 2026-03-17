@@ -25,8 +25,8 @@ title KixHub Launcher
 color 05
 
 :: ASCII Banner
-if exist "Hub\files\ascii.txt" (
-    type "Hub\files\ascii.txt"
+if exist "Hub\files\ascii2.txt" (
+    type "Hub\files\ascii2.txt"
 )
 
 echo.
