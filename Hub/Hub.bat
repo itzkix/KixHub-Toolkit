@@ -18,7 +18,7 @@ if %errorlevel% neq 0 (
 
 :: Admin vorhanden → Fenster groß machen für Tool
 mode con: cols=80 lines=30
-title Kix Hub 1.3.3
+title Kix Hub 1.3.4
 color 09
 
 :menu
@@ -43,6 +43,7 @@ echo 4. Herunterfahren Optionen
 echo 5. Kernisolierung Aktivieren/Deaktivieren
 echo 6. Vencord Installer/Updater
 echo 7. Gaming-Apps installieren
+echo 8. OBS Clip Setup
 echo 0. Beenden
 echo.
 set /p choice=Bitte Nummer waehlen: 
@@ -55,6 +56,7 @@ if "%choice%"=="4" goto shutdownhub
 if "%choice%"=="5" goto hvci
 if "%choice%"=="6" goto vencord
 if "%choice%"=="7" goto gamingapps
+if "%choice%"=="8" goto obs
 if "%choice%"=="0" exit
 
 echo Ungueltige Auswahl!
@@ -146,4 +148,16 @@ if exist "Files\gamingapps.bat" (
     pause
 )
 
+goto menu
+
+:obs
+cls
+if exist "Files\ascii.txt" type "Files\ascii.txt"
+echo.
+echo --- Herunterfahroptionen ---
+if exist "Files\obsclip.bat" (
+    call "Files\obsclip.bat"
+) else (
+    echo Batch "obsclip.bat" nicht gefunden!
+)
 goto menu
