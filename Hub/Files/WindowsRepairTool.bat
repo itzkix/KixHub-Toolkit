@@ -1,8 +1,8 @@
 @echo off
 color 0A
-echo =====================================
-echo Windows Repair Tool gestartet
-echo =====================================
+echo ================================================================================
+echo                         Windows Repair Tool gestartet
+echo ================================================================================
 echo.
 
 :: CHKDSK vorbereiten
@@ -32,6 +32,6 @@ sfc /scannow
 @echo off
 color 09
 echo.
-echo =====================================
-echo Reparatur abgeschlossen
+echo ================================================================================
+echo                             Reparatur abgeschlossen
 pause

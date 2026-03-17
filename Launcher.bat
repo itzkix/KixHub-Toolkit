@@ -20,18 +20,19 @@ if %errorlevel% neq 0 (
 :: ==============================
 :: Fenster für Launcher
 :: ==============================
-mode con: cols=70 lines=30
+mode con: cols=55 lines=30
 title KixHub Launcher
-color 09
+color 05
 
 :: ASCII Banner
-if exist "Files\ascii.txt" (
-    type "Files\ascii.txt"
+if exist "Hub\files\ascii.txt" (
+    type "Hub\files\ascii.txt"
 )
 
-echo ==============================
-echo        KixHub Launcher
-echo ==============================
+echo.
+echo =======================================================
+echo                    KixHub Launcher
+echo =======================================================
 echo.
 
 :: ==============================
@@ -112,7 +113,7 @@ timeout /t 2 >nul
 
 :start
 echo.
-echo Starte Hub…
+echo Starte Hub...
 timeout /t 1 >nul
 
 call Hub\Hub.bat

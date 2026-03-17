@@ -2,7 +2,9 @@
 cd /d "%~dp0"
 setlocal enabledelayedexpansion
 
+:: ==============================
 :: ASCII-Datei prüfen
+:: ==============================
 if exist "Files\ascii.txt" (
     set "ascii=Files\ascii.txt"
 ) else (
@@ -14,9 +16,9 @@ cls
 :: ASCII-Banner anzeigen
 if defined ascii type "!ascii!"
 echo.
-echo =====================================
-echo         Shutdown Timer Optionen
-echo =====================================
+echo ================================================================================
+echo                            Shutdown Timer Optionen
+echo ================================================================================
 echo.
 echo 1. Timer starten
 echo 2. Timer abbrechen
@@ -37,13 +39,16 @@ goto menu
 cls
 :: ASCII-Banner erneut anzeigen
 if defined ascii type "!ascii!"
+echo.
+echo ================================================================================
+echo                             Shutdown Timer starten
+echo ================================================================================
+echo.
 
-echo.
-echo =====================================
-echo         Shutdown Timer starten
-echo =====================================
-echo.
 set /p timeinput=Gib die Zeit bis zum Shutdown ein (z.B. 3h oder 90m): 
+
+:: Führende/nachgestellte Leerzeichen entfernen
+set "timeinput=!timeinput: =!"
 
 set lastchar=!timeinput:~-1!
 set time=!timeinput!
@@ -73,6 +78,11 @@ goto menu
 cls
 :: ASCII-Banner erneut anzeigen
 if defined ascii type "!ascii!"
+echo.
+echo ================================================================================
+echo                           Shutdown Timer abbrechen
+echo ================================================================================
+echo.
 
 shutdown /a >nul 2>&1
 if %errorlevel%==0 (
@@ -80,6 +90,7 @@ if %errorlevel%==0 (
 ) else (
     echo Kein aktiver Shutdown-Timer gefunden.
 )
+echo.
 pause >nul
 goto menu
 
@@ -87,6 +98,11 @@ goto menu
 cls
 :: ASCII-Banner anzeigen
 if defined ascii type "!ascii!"
+echo.
+echo =====================================
+echo         Zurueck zum Hub
+echo =====================================
+echo.
 
 :: Prüfen, ob die Hub.bat im übergeordneten Ordner existiert
 if exist "..\Hub.bat" (

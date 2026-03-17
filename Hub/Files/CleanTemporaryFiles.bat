@@ -1,8 +1,8 @@
 @echo off
-color 01
-echo ======================================
-echo   Alle temporaeren Dateien loeschen?
-echo ======================================
+color 09
+echo ================================================================================
+echo                      Alle temporaeren Dateien loeschen?
+echo ================================================================================
 echo.
 pause
 
@@ -14,5 +14,5 @@ Del /S /F /Q "C:\WINDOWS\Prefetch" >nul 2>&1
 @echo off
 color 09
 echo.
-echo --- Fertig ---
+echo                                --- Fertig ---
 pause >nul

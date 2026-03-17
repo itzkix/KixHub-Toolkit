@@ -14,9 +14,9 @@ cls
 :: Banner anzeigen
 if defined ascii type "%ascii%"
 echo.
-echo =====================================
-echo         HVCI Optionen
-echo =====================================
+echo ================================================================================
+echo                                 HVCI Optionen
+echo ================================================================================
 echo 1. HVCI aktivieren
 echo 2. HVCI deaktivieren
 echo 3. Zurueck zum Hub
@@ -39,7 +39,7 @@ echo.
 if exist "hvcifiles\enable_hvci.reg" (
     echo HVCI wird aktiviert...
     reg import "hvcifiles\enable_hvci.reg"
-    echo Fertig! Bitte den PC neu starten, damit die Änderung wirksam wird.
+    echo Fertig! Bitte den PC neu starten, damit die aenderung wirksam wird.
 ) else (
     echo Fehler: enable_hvci.reg wurde nicht gefunden!
 )
@@ -54,7 +54,7 @@ echo.
 if exist "hvcifiles\disable_hvci.reg" (
     echo HVCI wird deaktiviert...
     reg import "hvcifiles\disable_hvci.reg"
-    echo Fertig! Bitte den PC neu starten, damit die Änderung wirksam wird.
+    echo Fertig! Bitte den PC neu starten, damit die aenderung wirksam wird.
 ) else (
     echo Fehler: disable_hvci.reg wurde nicht gefunden!
 )

@@ -1,8 +1,8 @@
 @echo off
 color 0B
-echo =======================================
-echo   System Scan gestartet (SFC + DISM)
-echo =======================================
+echo ================================================================================
+echo                       System Scan gestartet (SFC + DISM)
+echo ================================================================================
 echo.
 
 :: SFC Scan
@@ -27,6 +27,6 @@ sfc /scannow
 @echo off
 color 09
 echo.
-echo =====================================
-echo Scan abgeschlossen
+echo ================================================================================
+echo                              Scan abgeschlossen
 pause

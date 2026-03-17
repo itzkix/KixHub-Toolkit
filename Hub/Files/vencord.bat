@@ -5,9 +5,9 @@ title Vencord Installer/Updater
 :: Arbeitsverzeichnis auf den Ordner dieser Batch setzen
 cd /d "%~dp0"
 
-echo =====================================
-echo        Vencord Installer/Updater
-echo =====================================
+echo ================================================================================
+echo                            Vencord Installer/Updater
+echo ================================================================================
 echo.
 
 :: Prüfen, ob die EXE existiert

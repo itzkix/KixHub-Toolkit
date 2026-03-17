@@ -17,8 +17,8 @@ if %errorlevel% neq 0 (
 )
 
 :: Admin vorhanden → Fenster groß machen für Tool
-mode con: cols=70 lines=30
-title Kix Hub 1.3.1
+mode con: cols=80 lines=30
+title Kix Hub 1.3.2
 color 09
 
 :menu
@@ -32,9 +32,9 @@ if exist "Files\ascii.txt" (
 
 :: Menü anzeigen
 echo.
-echo ================================
-echo              TOOLS
-echo ================================
+echo ================================================================================
+echo                                     TOOLS
+echo ================================================================================
 echo.
 echo 1. Temp Dateien loeschen
 echo 2. Windows Repair Tool
