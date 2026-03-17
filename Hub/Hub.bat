@@ -18,7 +18,7 @@ if %errorlevel% neq 0 (
 
 :: Admin vorhanden → Fenster groß machen für Tool
 mode con: cols=80 lines=30
-title Kix Hub 1.3.2
+title Kix Hub 1.3.3
 color 09
 
 :menu
@@ -42,6 +42,7 @@ echo 3. System Scan (SFC + DISM)
 echo 4. Herunterfahren Optionen
 echo 5. Kernisolierung Aktivieren/Deaktivieren
 echo 6. Vencord Installer/Updater
+echo 7. Gaming-Apps installieren
 echo 0. Beenden
 echo.
 set /p choice=Bitte Nummer waehlen: 
@@ -53,6 +54,7 @@ if "%choice%"=="3" goto scan
 if "%choice%"=="4" goto shutdownhub
 if "%choice%"=="5" goto hvci
 if "%choice%"=="6" goto vencord
+if "%choice%"=="7" goto gamingapps
 if "%choice%"=="0" exit
 
 echo Ungueltige Auswahl!
@@ -128,4 +130,20 @@ if exist "Files\hvci.bat" (
 ) else (
     echo Batch "hvci.bat" nicht gefunden!
 )
+goto menu
+
+:gamingapps
+cls
+if exist "Files\ascii.txt" type "Files\ascii.txt"
+echo.
+echo --- Gaming Apps Installer ---
+echo.
+
+if exist "Files\gamingapps.bat" (
+    start "" "Files\gamingapps.bat"
+) else (
+    echo Batch "gamingapps.bat" nicht gefunden!
+    pause
+)
+
 goto menu
