@@ -44,6 +44,7 @@ echo 5. Kernisolierung Aktivieren/Deaktivieren
 echo 6. Vencord Installer/Updater
 echo 7. Gaming-Apps installieren
 echo 8. OBS Clip Setup
+echo 9. Ultimate Windows Utility
 echo 0. Beenden
 echo.
 set /p choice=Bitte Nummer waehlen: 
@@ -57,6 +58,7 @@ if "%choice%"=="5" goto hvci
 if "%choice%"=="6" goto vencord
 if "%choice%"=="7" goto gamingapps
 if "%choice%"=="8" goto obs
+if "%choice%"=="9" goto uwu
 if "%choice%"=="0" exit
 
 echo Ungueltige Auswahl!
@@ -154,10 +156,25 @@ goto menu
 cls
 if exist "Files\ascii.txt" type "Files\ascii.txt"
 echo.
-echo --- Herunterfahroptionen ---
+echo --- OBS Settings ---
 if exist "Files\obsclip.bat" (
     call "Files\obsclip.bat"
 ) else (
     echo Batch "obsclip.bat" nicht gefunden!
+)
+goto menu
+
+:uwu
+cls
+if exist "Files\ascii.txt" type "Files\ascii.txt"
+echo.
+echo --- Ultimate Windows Utility ---
+echo.
+
+if exist "Files\uwu.bat" (
+    start "" "Files\uwu.bat"
+) else (
+    echo Batch "uwu.bat" nicht gefunden!
+    pause
 )
 goto menu
