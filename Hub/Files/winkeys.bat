@@ -2,16 +2,19 @@
 chcp 1252 >nul
 color 05
 
-:: Windows Info anzeigen
 start winver
 
-:: ESC für Farben (falls du später brauchst)
-for /f %%A in ('echo prompt $E ^| cmd') do set "ESC=%%A"
+if exist "Files\ascii.txt" (
+    set "ascii=Files\ascii.txt"
+) else (
+    set "ascii="
+)
+
 
 :menu
 cls
-call :banner
-
+if defined ascii type "%ascii%"
+echo.
 echo ================================================================================
 echo                          Windows-Key Installer
 echo ================================================================================
@@ -63,8 +66,8 @@ if "%version%"=="14" set "KEY=QFFDN-GRT3P-VKWWX-X7T3R-8B639"
 if not defined KEY goto menu
 
 cls
-call :banner
-
+if defined ascii type "%ascii%"
+echo.
 echo ================================================================================
 echo                          Windows-Key Installer
 echo ================================================================================
