@@ -1,8 +1,9 @@
 @echo off
+color 06
+chcp 1252 >nul
 cd /d "%~dp0"
 setlocal enabledelayedexpansion
 
-:: ASCII-Banner einmal definieren
 if exist "Files\ascii.txt" (
     set "ascii=Files\ascii.txt"
 ) else (
@@ -11,7 +12,6 @@ if exist "Files\ascii.txt" (
 
 :menu
 cls
-:: Banner anzeigen
 if defined ascii type "%ascii%"
 echo.
 echo ================================================================================
@@ -19,16 +19,16 @@ echo                                 HVCI Optionen
 echo ================================================================================
 echo 1. HVCI aktivieren
 echo 2. HVCI deaktivieren
-echo 3. Zurueck zum Hub
+echo 3. Zurück zum Hub
 echo.
 
-set /p opt=Waehle eine Option: 
+set /p opt=Wähle eine Option: 
 
 if "%opt%"=="1" goto enable
 if "%opt%"=="2" goto disable
 if "%opt%"=="3" goto back
 
-echo Ungueltige Auswahl!
+echo Ungültige Auswahl!
 pause >nul
 goto menu
 
@@ -37,9 +37,12 @@ cls
 if defined ascii type "%ascii%"
 echo.
 if exist "hvcifiles\enable_hvci.reg" (
+    echo ================================================================================
+    echo                                 HVCI Optionen
+    echo ================================================================================
     echo HVCI wird aktiviert...
     reg import "hvcifiles\enable_hvci.reg"
-    echo Fertig! Bitte den PC neu starten, damit die aenderung wirksam wird.
+    echo Fertig! Bitte den PC neu starten, damit die änderung wirksam wird.
 ) else (
     echo Fehler: enable_hvci.reg wurde nicht gefunden!
 )
@@ -52,9 +55,12 @@ cls
 if defined ascii type "%ascii%"
 echo.
 if exist "hvcifiles\disable_hvci.reg" (
+    echo ================================================================================
+    echo                                 HVCI Optionen
+    echo ================================================================================
     echo HVCI wird deaktiviert...
     reg import "hvcifiles\disable_hvci.reg"
-    echo Fertig! Bitte den PC neu starten, damit die aenderung wirksam wird.
+    echo Fertig! Bitte den PC neu starten, damit die änderung wirksam wird.
 ) else (
     echo Fehler: disable_hvci.reg wurde nicht gefunden!
 )
@@ -72,4 +78,5 @@ if exist "..\Hub.bat" (
     echo Hub.bat nicht gefunden!
     pause
 )
+color 09
 exit /b

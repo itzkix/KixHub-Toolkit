@@ -1,18 +1,18 @@
 @echo off
-color 09
+chcp 1252 >nul
+color 08
 echo ================================================================================
-echo                      Alle temporaeren Dateien loeschen?
+echo                      Alle temporären Dateien löschen?
 echo ================================================================================
 echo.
 pause
 
-:: Dateien lÃ¶schen, ohne Ausgabe
 Del /S /F /Q "%temp%" >nul 2>&1
 Del /S /F /Q "%Windir%\Temp" >nul 2>&1
 Del /S /F /Q "C:\WINDOWS\Prefetch" >nul 2>&1
 
 @echo off
-color 09
 echo.
-echo                                --- Fertig ---
+echo                              --- Fertig ---
 pause >nul
+color 09

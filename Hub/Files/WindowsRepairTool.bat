@@ -1,4 +1,5 @@
 @echo off
+chcp 1252 >nul
 color 0A
 echo ================================================================================
 echo                         Windows Repair Tool gestartet
@@ -6,12 +7,12 @@ echo ===========================================================================
 echo.
 
 :: CHKDSK vorbereiten
-echo [1] CHKDSK wird fuer den naechsten Neustart geplant
+echo [1] CHKDSK wird für den nächsten Neustart geplant
 chkntfs /C C:
 
 echo.
 :: SFC Scan
-echo [2] Systemdateien pruefen
+echo [2] Systemdateien prüfen
 sfc /scannow
 
 echo.

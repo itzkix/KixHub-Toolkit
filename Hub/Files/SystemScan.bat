@@ -1,4 +1,5 @@
 @echo off
+chcp 1252 >nul
 color 0B
 echo ================================================================================
 echo                       System Scan gestartet (SFC + DISM)
@@ -6,7 +7,7 @@ echo ===========================================================================
 echo.
 
 :: SFC Scan
-echo [1] Systemdateien pruefen
+echo [1] Systemdateien prüfen
 sfc /scannow
 
 echo.

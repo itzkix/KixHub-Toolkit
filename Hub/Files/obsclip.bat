@@ -1,4 +1,5 @@
 @echo off
+chcp 1252 >nul
 color 0F
 set "base=%~dp0"
 
@@ -27,13 +28,13 @@ cls
 if exist "%~dp0ascii.txt" type "%~dp0ascii.txt"
 echo.
 echo ================================================================================
-echo                                OBS Manager
+echo                                  OBS Manager
 echo ================================================================================
 echo.
 echo 1. Autostart aktivieren
 echo 2. Autostart deaktivieren
 echo 3. OBS Setup installieren
-echo 4. Zurueck zum Hub
+echo 4. Zurück zum Hub
 echo.
 
 set /p opt=Auswahl: 
@@ -43,7 +44,7 @@ if "%opt%"=="2" goto disable
 if "%opt%"=="3" goto setup
 if "%opt%"=="4" goto hub
 
-echo Ungueltige Eingabe!
+echo Ungültige Eingabe!
 pause
 goto menu
 
@@ -62,7 +63,7 @@ if not defined obsLnk if not exist "%obsFolder%" (
     goto menu
 )
 
-:: Erste Verknuepfung im OBS-Ordner suchen
+:: Erste Verknüpfung im OBS-Ordner suchen
 set "obsLnk="
 for %%f in ("%obsFolder%\*.lnk") do (
     set "obsLnk=%%f"
@@ -71,7 +72,7 @@ for %%f in ("%obsFolder%\*.lnk") do (
 :foundLnk
 
 if not defined obsLnk (
-    echo OBS Verknuepfung nicht gefunden!
+    echo OBS Verknüpfung nicht gefunden!
     pause
     goto menu
 )
@@ -138,7 +139,7 @@ goto menu
 
 :hub
 color 09
-:: Springt zurÃ¼ck zum Hub (eine Ebene nach oben)
+:: Springt zurück zum Hub (eine Ebene nach oben)
 if exist "%~dp0..\hub.bat" (
     call "%~dp0..\hub.bat"
 )

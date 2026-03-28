@@ -1,9 +1,11 @@
 @echo off
+color 01
+chcp 1252 >nul
 cd /d "%~dp0"
 setlocal enabledelayedexpansion
 
 :: ==============================
-:: ASCII-Datei prÃ¼fen
+:: ASCII-Datei prüfen
 :: ==============================
 if exist "Files\ascii.txt" (
     set "ascii=Files\ascii.txt"
@@ -22,7 +24,7 @@ echo ===========================================================================
 echo.
 echo 1. Timer starten
 echo 2. Timer abbrechen
-echo 3. Zurueck zum Hub
+echo 3. Zurück zum Hub
 echo.
 
 set /p opt=Waehle eine Option: 
@@ -31,7 +33,7 @@ if "%opt%"=="1" goto start
 if "%opt%"=="2" goto cancel
 if "%opt%"=="3" goto back
 
-echo Ungueltige Auswahl!
+echo Ungültige Auswahl!
 pause >nul
 goto menu
 
@@ -47,7 +49,7 @@ echo.
 
 set /p timeinput=Gib die Zeit bis zum Shutdown ein (z.B. 3h oder 90m): 
 
-:: FÃ¼hrende/nachgestellte Leerzeichen entfernen
+:: Führende/nachgestellte Leerzeichen entfernen
 set "timeinput=!timeinput: =!"
 
 set lastchar=!timeinput:~-1!
@@ -58,7 +60,7 @@ if /i "!lastchar!"=="h" (
 ) else if /i "!lastchar!"=="m" (
     set /a seconds=!time:~0,-1!*60
 ) else (
-    echo Ungueltiges Format! Benutze z.B. 3h oder 90m
+    echo Ungültiges Format! Benutze z.B. 3h oder 90m
     pause >nul
     goto start
 )
@@ -68,7 +70,7 @@ if not exist "Files" mkdir "Files"
 echo !seconds! > "Files\shutdown_seconds.txt"
 
 echo.
-echo Shutdown gestartet. Der PC wird in !time! heruntergefahren.
+echo Drücke Enter um zu bestätigen, dass der PC in !time! heruntergefahren werden soll.
 pause >nul
 shutdown /s /t !seconds! >nul 2>&1
 
@@ -104,11 +106,12 @@ echo         Zurueck zum Hub
 echo =====================================
 echo.
 
-:: PrÃ¼fen, ob die Hub.bat im Ã¼bergeordneten Ordner existiert
+:: Prüfen, ob die Hub.bat im übergeordneten Ordner existiert
 if exist "..\Hub.bat" (
     call "..\Hub.bat"
 ) else (
-    echo Hub.bat nicht gefunden im uebergeordneten Ordner!
+    echo Hub.bat nicht gefunden im übergeordneten Ordner!
     pause
 )
+color 09
 exit /b
