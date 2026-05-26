@@ -78,6 +78,7 @@ echo ===========================================================================
 echo.
 echo 1. Win11 Debloat-Master
 echo 2. Windows Aktivieren
+echo 3. MSOverlay deaktivieren
 echo.
 echo B. Zurück
 echo 0. Beenden
@@ -87,7 +88,7 @@ set /p choice=Bitte Nummer wählen:
 
 if "%choice%"=="1" goto win11dm
 if "%choice%"=="2" goto winkeys
-if "%choice%"=="3" goto tool3
+if "%choice%"=="3" goto gamedvr
 if /i "%choice%"=="b" goto menu1
 if "%choice%"=="0" exit
 
@@ -223,5 +224,17 @@ if exist "Files\winkeys.bat" (
     call "Files\winkeys.bat"
 ) else (
     echo Batch "winkeys.bat" nicht gefunden!
+)
+goto menu2
+
+:gamedvr
+cls
+if exist "Files\ascii.txt" type "Files\ascii.txt"
+echo.
+if exist "Files\gamedvr.bat" (
+    call "Files\gamedvr.bat"
+) else (
+    echo Batch "gamedvr.bat" nicht gefunden!
+    pause
 )
 goto menu2
